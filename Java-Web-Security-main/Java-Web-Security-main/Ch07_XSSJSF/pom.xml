@@ -1,0 +1,38 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0    http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>de.dominikschadow.javawebsecurity</groupId>
+		<artifactId>javawebsecurity</artifactId>
+		<version>1.0.0</version>
+	</parent>
+	<artifactId>Ch07_XSSJSF</artifactId>
+	<packaging>war</packaging>
+	<name>Chapter 07 - XSS with JSF</name>
+	<url>https://github.com/dschadow/Java-Web-Security</url>
+	<description>Chapter 7 XSS with JSF sample project. Requires a server like Apache Tomcat. Open the web application in your browser at http://localhost:8080/Ch07_XSSJSF</description>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.sun.faces</groupId>
+			<artifactId>jsf-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.faces</groupId>
+			<artifactId>jsf-impl</artifactId>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<finalName>Ch07_XSSJSF</finalName>
+		<plugins>
+			<plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+</project>

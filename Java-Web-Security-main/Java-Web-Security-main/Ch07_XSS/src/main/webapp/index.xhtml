@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <h:outputStylesheet library="css" value="styles.css" name="styles.css" />
+    <title>Chapter 07 - XSS</title>
+</h:head>
+<h:body>
+    <h1>Chapter 07 - XSS</h1>
+
+    <p>This demo application shows Cross-Site Scripting (XSS) with JavaServer Faces (JSF). The first block of links
+    enables normal usage of the demo application (like a normal user). The second block contains attack possibilities
+    with XSS.</p>
+
+    <h2>Normal Usage</h2>
+
+    <ul>
+        <li><h:link outcome="createCustomer" value="Create Customer"/></li>
+        <li>
+            <h:link outcome="showCustomers" value="Show Customers">
+                <f:param name="currency" value="EUR"/>
+            </h:link>
+        </li>
+        <li><h:link outcome="search" value="Search Customer"/></li>
+    </ul>
+
+    <h2>Attacks</h2>
+
+    <ul>
+        <li><h:link outcome="showCustomers" value="Stored XSS"/></li>
+        <li>
+            <h:form>
+                <h:commandLink action="#{search.search}" value="Reflected XSS">
+                    <f:param name="customerName"
+                             value="Dummy&lt;script&gt;alert('Reflected XSS - Session ID: ' + document.cookie)&lt;/script&gt;"/>
+                </h:commandLink>
+            </h:form>
+        </li>
+        <li>
+            <h:link outcome="showCustomers" value="DOM Based XSS">
+                <f:param name="currency"
+                         value="&lt;script&gt;alert(&quot;DOM&nbsp;Based&nbsp;XSS&nbsp;-&nbsp;Session&nbsp;ID:&nbsp;&quot;+document.cookie)&lt;/script&gt;"/>
+            </h:link>
+        </li>
+    </ul>
+
+</h:body>
+</html>

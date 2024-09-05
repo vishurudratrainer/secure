@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <base href="/"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <title>Session Handling - Spring Security</title>
+</head>
+<body>
+<div class="container" id="main">
+    <div class="row" id="welcome">
+        <div class="col-12">
+            <h1>User Profile
+                <small th:text="${greeting}"></small>
+            </h1>
+
+            <p sec:authorize="!isAuthenticated()">Your current session is <strong th:text="${sessionId}"></strong>
+                and you are not logged in.</p>
+            <p sec:authorize="isAuthenticated()">Your current session is <strong th:text="${sessionId}"></strong>
+                and you are logged in as <strong sec:authentication="principal.username"></strong>.</p>
+        </div>
+    </div>
+
+    <div class="row" id="links">
+        <div class="col-12">
+            User | <a th:href="@{admin/admin}">Admin</a>
+        </div>
+    </div>
+
+    <div class="row" id="logout" sec:authorize="isAuthenticated()">
+        <div class="col-12">
+            <a th:href="@{/logout}">Logout</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

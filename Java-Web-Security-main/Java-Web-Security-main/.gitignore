@@ -1,0 +1,19 @@
+*.class
+.idea
+.classpath
+.project
+.DS_Store
+*/target*
+target/
+.settings*
+# Package Files #
+*.jar
+*.war
+*.ear
+*.iml
+*.log
+*.lck
+.pmd
+.forge_settings
+accountsDB.properties
+customerDB.properties

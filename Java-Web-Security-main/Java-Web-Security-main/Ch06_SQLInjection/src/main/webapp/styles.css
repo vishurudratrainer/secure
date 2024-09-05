@@ -1,0 +1,18 @@
+.text-input {
+    width: 250px;
+}
+
+h1 {
+    font-size: 1.5em;
+}
+
+h2 {
+    font-size: 1.2em;
+}
+
+th {
+    background-color: darkgrey;
+    padding: 2pt;
+    font-weight: bold;
+    font-size: 1.1em;
+}

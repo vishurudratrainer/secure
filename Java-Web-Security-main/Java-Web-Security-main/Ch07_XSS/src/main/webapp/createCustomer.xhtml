@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <h:outputStylesheet library="css" value="styles.css" name="styles.css" />
+    <title>Chapter 07 - XSS</title>
+</h:head>
+<h:body>
+    <h1>Chapter 07 - XSS</h1>
+
+    <h:form>
+        <h:link outcome="index" value="Home"/> | <h:link outcome="showCustomers" value="Show Customers"><f:param
+            name="currency" value="EUR"/></h:link> | <h:link outcome="search" value="Search Customer"/>
+    </h:form>
+
+    <p>Enter all information to create a new customer:</p>
+
+    <h:form id="createCustomer">
+        <h:panelGrid columns="2">
+            <h:outputLabel value="Name" for="name"/>
+            <h:inputText value="#{customer.customer.name}" label="Name" id="name"/>
+
+            <h:outputLabel value="Status" for="status"/>
+            <h:inputText value="#{customer.customer.status}" label="Status" id="status"/>
+
+            <h:outputLabel value="Order Limit" for="orderLimit"/>
+            <h:inputText value="#{customer.customer.orderLimit}" label="Order Limit" id="orderLimit"/>
+
+            <h:outputLabel value="Hint" for="hint" title="Customer hint with HTML enabled"/>
+            <h:inputTextarea value="#{customer.customer.hint}" label="Hint" id="hint"/>
+        </h:panelGrid>
+        <h:commandButton value="Save" action="#{customer.save}"/>
+    </h:form>
+</h:body>
+</html>

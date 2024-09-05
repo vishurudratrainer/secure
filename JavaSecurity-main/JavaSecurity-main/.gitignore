@@ -1,0 +1,11 @@
+*.iml
+*.log
+*.lck
+.Idea*
+target**
+.settings*
+.metadata*
+.classpath
+.project
+/dependency-check-report.html
+/serialize-me.bin
